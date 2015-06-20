@@ -1,0 +1,5 @@
+{
+    "environment": "development",
+    "threshold": 50,
+    "maxRGB": 1
+}
