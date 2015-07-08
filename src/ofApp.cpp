@@ -25,12 +25,11 @@ void ofApp::update(){
             if((currentFramePixels[i+0] >= background[i+0] - threshold && currentFramePixels[i+0] <= background[i+0] + threshold) &&
                (currentFramePixels[i+1] >= background[i+1] - threshold && currentFramePixels[i+1] <= background[i+1] + threshold) &&
                (currentFramePixels[i+2] >= background[i+2] - threshold && currentFramePixels[i+2] <= background[i+2] + threshold)) {
-                currentFramePixels[i+0] = previousFrame[i+0] > 0 ? previousFrame[i+0] - maxRGB + 99 : 0;
+                currentFramePixels[i+0] = previousFrame[i+0] > 0 ? previousFrame[i+0] - maxRGB : 0;
                 currentFramePixels[i+1] = previousFrame[i+1] > 0 ? previousFrame[i+1] - maxRGB : 0;
                 currentFramePixels[i+2] = previousFrame[i+2] > 0 ? previousFrame[i+2] - maxRGB : 0;
             }
             i += 3;
-            
         }
         currentFrame.setFromPixels(currentFramePixels);
         frame.setFromPixels(currentFramePixels);
