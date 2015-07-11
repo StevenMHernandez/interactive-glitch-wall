@@ -13,6 +13,7 @@
 		837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F2C6477A769C03A56D1401 /* ofxSlider.cpp */; };
 		856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9604B925D32EE39065747725 /* ofxBaseGui.cpp */; };
 		B07A29B01B360746005D675D /* VideoSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B07A29AE1B360746005D675D /* VideoSource.cpp */; };
+		B084D6EA1B50BAF200769431 /* ofxHttpUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B084D6E81B50BAF200769431 /* ofxHttpUtils.cpp */; };
 		B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */; };
 		B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
@@ -91,6 +92,9 @@
 		B07A29AC1B35F5F2005D675D /* ofxRPiCameraVideoGrabber */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ofxRPiCameraVideoGrabber; path = ../../../addons/ofxRPiCameraVideoGrabber; sourceTree = "<group>"; };
 		B07A29AE1B360746005D675D /* VideoSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoSource.cpp; sourceTree = "<group>"; };
 		B07A29AF1B360746005D675D /* VideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSource.h; sourceTree = "<group>"; };
+		B084D6E71B50BAF200769431 /* ofxHttpTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxHttpTypes.h; sourceTree = "<group>"; };
+		B084D6E81B50BAF200769431 /* ofxHttpUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxHttpUtils.cpp; sourceTree = "<group>"; };
+		B084D6E91B50BAF200769431 /* ofxHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxHttpUtils.h; sourceTree = "<group>"; };
 		B87C60311EC1FE841C1ECD89 /* ofxLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxLabel.h; path = ../../../addons/ofxGui/src/ofxLabel.h; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		C70D8946940288799E82131E /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSliderGroup.h; path = ../../../addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
@@ -218,9 +222,29 @@
 			name = src;
 			sourceTree = "<group>";
 		};
+		B084D6E51B50BAF200769431 /* ofxHttpUtils */ = {
+			isa = PBXGroup;
+			children = (
+				B084D6E61B50BAF200769431 /* src */,
+			);
+			name = ofxHttpUtils;
+			path = ../../../addons/ofxHttpUtils;
+			sourceTree = "<group>";
+		};
+		B084D6E61B50BAF200769431 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				B084D6E71B50BAF200769431 /* ofxHttpTypes.h */,
+				B084D6E81B50BAF200769431 /* ofxHttpUtils.cpp */,
+				B084D6E91B50BAF200769431 /* ofxHttpUtils.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				B084D6E51B50BAF200769431 /* ofxHttpUtils */,
 				B07A29AC1B35F5F2005D675D /* ofxRPiCameraVideoGrabber */,
 				480A780D8D0308AE4A368801 /* ofxGui */,
 				2865DAEF86B1907A704CA70B /* ofxJSON */,
@@ -421,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07A29B01B360746005D675D /* VideoSource.cpp in Sources */,
+				B084D6EA1B50BAF200769431 /* ofxHttpUtils.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,

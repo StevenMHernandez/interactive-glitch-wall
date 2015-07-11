@@ -1,5 +1,16 @@
 {
     "environment": "development",
     "threshold": 50,
-    "maxRGB": 1
+    "maxRGB": 1,
+    "server": {
+      "port": "8000"
+    },
+    "tumblr": {
+        "url": "example.tumblr.com",
+        "tags": "comma,separated",
+        "consumer_key": "OAuth_Consumer_Key",
+        "consumer_secret":"OAuth_Consumer_Secret",
+        "token": "OAuth_Access_Token",
+        "token_secret": "OAuth_Access_Token_Secret"
+    }
 }
