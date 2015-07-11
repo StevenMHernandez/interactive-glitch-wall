@@ -13,6 +13,7 @@ int VideoSource::getHeight(){
 };
 
 void VideoSource::init(){
+//    video.initGrabber(720, 480);
     video.initGrabber(320, 240);
 };
 

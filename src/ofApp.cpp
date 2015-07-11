@@ -2,18 +2,32 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+cout << system("pwd");
     settings.open("config.json");
     environment = settings["environment"].asString();
     threshold = settings["threshold"].asInt();
     maxRGB = settings["maxRGB"].asInt();
-    
+    int backgroundButtonPin = settings["pins"]["background"].asInt();
+    int saveImageButtonPin = settings["pins"]["saveImage"].asInt();
+    saveImageUrl = "http://localhost:" + settings["server"]["port"].asString() + "/";
+
     video.init();
     frame.setFromPixels(video.getPixels(), video.getWidth(), video.getHeight(), OF_IMAGE_COLOR);
+
+    if(wiringPiSetup() == -1){
+        printf("Error on wiringPi setup");
+    }
+
+    backgroundButton.setPin(backgroundButtonPin);
+    saveImageButton.setPin(saveImageButtonPin);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    video.update();
+    video.update();   
+    backgroundButton.update();
+    saveImageButton.update();
+
     if (backgroundSet) {
         ofPixels currentFramePixels;
         currentFramePixels.setFromPixels(video.getPixels(), video.getWidth(), video.getHeight(), OF_IMAGE_COLOR);
@@ -48,12 +62,25 @@ void ofApp::draw(){
         ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 0, 10);
         ofDrawBitmapString(environment, 0, 30);
     }
+    if (backgroundButton.isInitialPress()) {
+        resetBackground();
+        cout << "background reset.\n";
+    }
+    if(saveImageButton.isInitialPress()) {
+        currentFrame.saveImage("image.jpg"); 
+        httpUtils.getUrl(saveImageUrl + "?image=" + "image");
+        cout << "image saved.\n";
+    }
 }
 
 void ofApp::keyPressed(int key) {
     if(key == ' ') {
+        resetBackground();
+    }
+}
+
+void ofApp::resetBackground() {
         backgroundSet = true;
         video.update();
         background.setFromPixels(video.getPixels(), video.getWidth(), video.getHeight(), OF_IMAGE_COLOR);
-    }
 }

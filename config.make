@@ -61,7 +61,8 @@
 #
 #   Note: Leave a leading space when adding list items with the += operator
 ################################################################################
-# PROJECT_EXCLUSIONS =
+PROJECT_EXCLUSIONS =
+PROJECT_EXCLUSIONS += $(PROJECT_ROOT)/node_modules%
 
 ################################################################################
 # PROJECT LINKER FLAGS
@@ -78,6 +79,7 @@
 # incorporated directly into the final executable application binary.
 # TODO: should this be a default setting?
 # PROJECT_LDFLAGS=-Wl,-rpath=./libs
+PROJECT_LDFLAGS += -lwiringPi
 
 ################################################################################
 # PROJECT DEFINES
