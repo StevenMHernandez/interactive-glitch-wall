@@ -2,24 +2,21 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-cout << system("pwd");
     settings.open("config.json");
     environment = settings["environment"].asString();
     threshold = settings["threshold"].asInt();
     maxRGB = settings["maxRGB"].asInt();
-    int backgroundButtonPin = settings["pins"]["background"].asInt();
-    int saveImageButtonPin = settings["pins"]["saveImage"].asInt();
     saveImageUrl = "http://localhost:" + settings["server"]["port"].asString() + "/";
 
     video.init();
+    gifRecorder.init(settings["gif"]["frame_count"].asInt(),
+                     settings["gif"]["nth_frame"].asInt(),
+                     video.getWidth(),
+                     video.getHeight());
     frame.setFromPixels(video.getPixels(), video.getWidth(), video.getHeight(), OF_IMAGE_COLOR);
 
-    if(wiringPiSetup() == -1){
-        printf("Error on wiringPi setup");
-    }
-
-    backgroundButton.setPin(backgroundButtonPin);
-    saveImageButton.setPin(saveImageButtonPin);
+    backgroundButton.setPin(settings["pins"]["background"].asInt());
+    saveImageButton.setPin(settings["pins"]["saveImage"].asInt());
 }
 
 //--------------------------------------------------------------
@@ -47,6 +44,10 @@ void ofApp::update(){
         }
         currentFrame.setFromPixels(currentFramePixels);
         frame.setFromPixels(currentFramePixels);
+        gifRecorder.update(currentFrame);
+        if (gifRecorder.isRecorded()) {
+            uploadImage();
+        }
     }
 }
 
@@ -64,12 +65,9 @@ void ofApp::draw(){
     }
     if (backgroundButton.isInitialPress()) {
         resetBackground();
-        cout << "background reset.\n";
     }
     if(saveImageButton.isInitialPress()) {
-        currentFrame.saveImage("image.jpg"); 
-        httpUtils.getUrl(saveImageUrl + "?image=" + "image");
-        cout << "image saved.\n";
+        saveImage();
     }
 }
 
@@ -77,10 +75,23 @@ void ofApp::keyPressed(int key) {
     if(key == ' ') {
         resetBackground();
     }
+    if(key == 's') {
+        saveImage();
+    }
 }
 
 void ofApp::resetBackground() {
-        backgroundSet = true;
-        video.update();
-        background.setFromPixels(video.getPixels(), video.getWidth(), video.getHeight(), OF_IMAGE_COLOR);
+    backgroundSet = true;
+    video.update();
+    background.setFromPixels(video.getPixels(), video.getWidth(), video.getHeight(), OF_IMAGE_COLOR);
+    cout << "background reset.\n";
+}
+
+void ofApp::saveImage() {
+    gifRecorder.start();
+}
+
+void ofApp::uploadImage() {
+        httpUtils.getUrl(saveImageUrl + "?image=" + "image");
+        cout << "image saved.\n";
 }

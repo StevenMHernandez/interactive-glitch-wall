@@ -12,5 +12,9 @@
         "consumer_secret":"OAuth_Consumer_Secret",
         "token": "OAuth_Access_Token",
         "token_secret": "OAuth_Access_Token_Secret"
+    },
+    "gif": {
+        "frame_count": 9,
+        "nth_frame": 9
     }
 }

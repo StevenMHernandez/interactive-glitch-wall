@@ -5,6 +5,7 @@
 #include "ofxHttpUtils.h"
 #include "VideoSource.h"
 #include "Button.h"
+#include "GifRecorder.h"
 
 class ofApp : public ofBaseApp{
 
@@ -16,6 +17,8 @@ public:
     void keyPressed(int key);
 
     void resetBackground();
+    void saveImage();
+    void uploadImage();
 
     bool backgroundSet;
     ofPixels background;
@@ -34,4 +37,6 @@ public:
     Button saveImageButton;
 
     ofxHttpUtils httpUtils;
+    
+    GifRecorder gifRecorder;
 };

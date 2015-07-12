@@ -11,7 +11,7 @@ var client = tumblr.createClient({
 });
 
 app.get('/', function (req, res) {
-    var file = './bin/data/' + req.query["image"] + '.jpg';
+    var file = './bin/data/' + req.query["image"] + '.gif';
     client.photo(config.tumblr.url, {"tags": config.tumblr.tags, "data": file}, function (err, data) {
         if (err) {
             console.log(err);
