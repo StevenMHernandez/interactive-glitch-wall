@@ -12,6 +12,7 @@
 		B0B8A8091B52AC24007F4AEC /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A8071B52AC24007F4AEC /* Button.cpp */; };
 		B0B8A80C1B52AC33007F4AEC /* GifRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A80A1B52AC33007F4AEC /* GifRecorder.cpp */; };
 		B0B8A8201B52ACD9007F4AEC /* ofxGifEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0B8A81A1B52ACD9007F4AEC /* ofxGifEncoder.cpp */; };
+		B0DFB7BC1B55BCFC00B3637C /* ofxTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0DFB7BA1B55BCFC00B3637C /* ofxTimer.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		BEDFEE7400C58EA4E412B757 /* ofxJSONElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F2B099E6BD1199664C48B177 /* ofxJSONElement.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
@@ -85,6 +86,8 @@
 		B0B8A81A1B52ACD9007F4AEC /* ofxGifEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxGifEncoder.cpp; sourceTree = "<group>"; };
 		B0B8A81B1B52ACD9007F4AEC /* ofxGifEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGifEncoder.h; sourceTree = "<group>"; };
 		B0B8A81C1B52ACD9007F4AEC /* ofxGifFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGifFrame.h; sourceTree = "<group>"; };
+		B0DFB7BA1B55BCFC00B3637C /* ofxTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTimer.cpp; sourceTree = "<group>"; };
+		B0DFB7BB1B55BCFC00B3637C /* ofxTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTimer.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -214,9 +217,28 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		B0DFB7B81B55BCFC00B3637C /* ofxTimer */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFB7B91B55BCFC00B3637C /* src */,
+			);
+			name = ofxTimer;
+			path = ../../../addons/ofxTimer;
+			sourceTree = "<group>";
+		};
+		B0DFB7B91B55BCFC00B3637C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFB7BA1B55BCFC00B3637C /* ofxTimer.cpp */,
+				B0DFB7BB1B55BCFC00B3637C /* ofxTimer.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				B0DFB7B81B55BCFC00B3637C /* ofxTimer */,
 				B0B8A80D1B52ACD9007F4AEC /* ofxGifEncoder */,
 				B084D6E51B50BAF200769431 /* ofxHttpUtils */,
 				2865DAEF86B1907A704CA70B /* ofxJSON */,
@@ -427,6 +449,7 @@
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				B0B8A8091B52AC24007F4AEC /* Button.cpp in Sources */,
 				B0B8A80C1B52AC33007F4AEC /* GifRecorder.cpp in Sources */,
+				B0DFB7BC1B55BCFC00B3637C /* ofxTimer.cpp in Sources */,
 				BEDFEE7400C58EA4E412B757 /* ofxJSONElement.cpp in Sources */,
 				FB84AAF8D1B7A95266DB5C09 /* jsoncpp.cpp in Sources */,
 			);

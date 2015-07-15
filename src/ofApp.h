@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxJSON.h"
 #include "ofxHttpUtils.h"
+#include "ofxTimer.h"
 #include "VideoSource.h"
 #include "Button.h"
 #include "GifRecorder.h"
@@ -18,6 +19,7 @@ public:
 
     void resetBackground();
     void saveImage();
+    void recordGif(ofEventArgs&);
     void uploadImage();
 
     bool backgroundSet;
@@ -25,6 +27,9 @@ public:
     ofImage frame;
     ofImage currentFrame;
     string saveImageUrl;
+
+    ofPixels currentFramePixels;
+    ofPixels previousFrame;
 
     ofxJSONElement settings;
     string environment;
@@ -37,6 +42,8 @@ public:
     Button saveImageButton;
 
     ofxHttpUtils httpUtils;
-    
+
     GifRecorder gifRecorder;
+
+    ofxTimer timer;
 };

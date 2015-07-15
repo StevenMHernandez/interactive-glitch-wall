@@ -45,6 +45,10 @@ void GifRecorder::storeFrame(ofImage frame) {
     );
 }
 
+bool GifRecorder::isRecording() {
+    return recording;
+}
+
 bool GifRecorder::isRecorded() {
     if (recorded) {
         recorded = false;

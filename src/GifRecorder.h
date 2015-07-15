@@ -10,6 +10,7 @@ public:
     void init(int, int, int, int);
     void update(ofImage);
     void start();
+    bool isRecording();
     bool isRecorded();
 private:
     int width;

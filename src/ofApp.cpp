@@ -17,6 +17,9 @@ void ofApp::setup(){
 
     backgroundButton.setPin(settings["pins"]["background"].asInt());
     saveImageButton.setPin(settings["pins"]["saveImage"].asInt());
+    timer.reset();
+
+    ofAddListener(timer.TIMER_REACHED, this, &ofApp::recordGif);
 }
 
 //--------------------------------------------------------------
@@ -26,9 +29,7 @@ void ofApp::update(){
     saveImageButton.update();
 
     if (backgroundSet) {
-        ofPixels currentFramePixels;
         currentFramePixels.setFromPixels(video.getPixels(), video.getWidth(), video.getHeight(), OF_IMAGE_COLOR);
-        ofPixels previousFrame;
         previousFrame.setFromPixels(frame.getPixels(), frame.getWidth(), frame.getHeight(), OF_IMAGE_COLOR);
         
         int i = 0;
@@ -69,6 +70,12 @@ void ofApp::draw(){
     if(saveImageButton.isInitialPress()) {
         saveImage();
     }
+    if (timer.getTimeLeftInSeconds() > 0) {
+        ofDrawBitmapStringHighlight("Recording gif in: " + ofToString((int)timer.getTimeLeftInSeconds()) + " seconds.", 10, 50);
+    }
+    if (gifRecorder.isRecording()) {
+        ofDrawBitmapStringHighlight("Recording .gif", 10, 50);
+    }
 }
 
 void ofApp::keyPressed(int key) {
@@ -88,6 +95,12 @@ void ofApp::resetBackground() {
 }
 
 void ofApp::saveImage() {
+    timer.reset();
+    timer.setup(3999, false);
+    timer.startTimer();
+}
+
+void ofApp::recordGif(ofEventArgs & eventArgs) {
     gifRecorder.start();
 }
 

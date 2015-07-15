@@ -1,3 +1,4 @@
 ofxJSON
 ofxHttpUtils
 ofxGifEncoder
+ofxTimer
